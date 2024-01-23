@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "author": "Γιωργος Κουνδουράκης",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 10.2, "left": -87, "attrs": {} },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -414.8,
+      "left": -23.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -151.2,
+      "left": -103.8,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -128.4,
+      "left": 176.6,
+      "attrs": { "color": "limegreen" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": -128.4, "left": 3.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -62.4,
+      "left": -29.35,
+      "rotate": 90,
+      "attrs": { "value": "350" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -52.8,
+      "left": 162.65,
+      "rotate": 90,
+      "attrs": { "value": "350" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd2",
+      "top": 265.6,
+      "left": 101.6,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "uno:9", "keypad1:R1", "green", [ "v0" ] ],
+    [ "uno:8", "keypad1:R2", "green", [ "v0" ] ],
+    [ "uno:7", "keypad1:R3", "green", [ "v0" ] ],
+    [ "uno:6", "keypad1:R4", "green", [ "v0" ] ],
+    [ "uno:5", "keypad1:C1", "green", [ "v0" ] ],
+    [ "uno:4", "keypad1:C2", "green", [ "v0" ] ],
+    [ "uno:3", "keypad1:C3", "green", [ "v0" ] ],
+    [ "uno:2", "keypad1:C4", "green", [ "v0" ] ],
+    [ "uno:10", "bz1:1", "green", [ "v-38.4", "h-28.1" ] ],
+    [ "uno:GND.1", "bz1:2", "black", [ "v-28.8", "h0.3" ] ],
+    [ "led1:A", "uno:0", "green", [ "v19.2", "h-19.2" ] ],
+    [ "led1:C", "r2:1", "green", [ "v0" ] ],
+    [ "led2:A", "uno:11", "green", [ "v28.8", "h19.2" ] ],
+    [ "led2:C", "r1:1", "green", [ "v0" ] ],
+    [ "uno:GND.1", "r1:2", "black", [ "v-48", "h0.3" ] ],
+    [ "uno:GND.1", "r2:2", "black", [ "v-48", "h153.9", "v9.6" ] ],
+    [ "lcd2:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "lcd2:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "lcd2:SDA", "uno:A4", "green", [ "h-48", "v-86.2", "h96" ] ],
+    [ "lcd2:SCL", "uno:A5", "green", [ "h-76.8", "v-86.1", "h144" ] ]
+  ],
+  "dependencies": {}
+}
